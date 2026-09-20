@@ -1,12 +1,18 @@
 # Agent辅助时序预测建模调研
 
-调研日期：2026-09-16。围绕已有NeuralForecast销售预测baseline，以及跨品牌适配的人力成本展开。
+调研始于2026-09-16，更新至2026-09-18。围绕已有NeuralForecast销售预测baseline，以及跨品牌适配的人力成本展开。当前重点为实验Harness与时序任务特化，先读09和10。
 
-**结论：已有相近实例。最优先研究TimeCopilot、Microsoft Finn、金融训练TS-Agent和TimeSeriesScientist；企业研发、商业用途声明、学术实验与成熟生产收益需要分别看待。**
+**首轮调研结论（历史）：已有相近实例，曾优先研究TimeCopilot、Microsoft Finn、金融训练TS-Agent和TimeSeriesScientist。此后经代码核查和任务重定位调整了推荐顺序，最新结论见09和10；企业来源不等于已验证生产收益。**
 
 ## 阅读入口
 
-**最新：[模型、特征、超参联合优化与 Agent 工作流](08_joint_optimization_and_agent_workflow.md)**：2026-09-18 源码调研，重点分析 RD-Agent 决策闭环、FLAML 成本调度与现有训练脚本的结合方式。
+**最新方向（2026-09-18）：从算法选型转向可控、可恢复的实验 Harness。**
+
+- [09 开源 Harness 架构调研](09_open_source_harness_architectures.md)：公开生态筛选，Deep Agents、AgentScope、AIDE、SWE-agent、mini-swe-agent 的代码机制、权限与上下文、失败恢复及验收。
+- [10 时序预测训练 Agent 特化模块](10_forecasting_agent_specialization.md)：Finn 与 TimeCopilot 的实际实现，映射现有训练脚本的工具、诊断、评估、实验记忆和验证案例。
+- [11 固定版本源码清单](11_harness_source_manifest.json)：7 个仓库、23 份源码/测试/许可文件的 commit、链接与 SHA-256；测试仅阅读，未执行。
+
+**[模型、特征、超参联合优化与 Agent 工作流](08_joint_optimization_and_agent_workflow.md)**：2026-09-18 源码调研，重点分析 RD-Agent 决策闭环、FLAML 成本调度与现有训练脚本的结合方式。
 
 **[降低重训成本与有依据的参数搜索](07_retraining_cost_and_search_spaces.md)**：NeuralForecast 续训边界、搜索空间、预算分配及多指标生产约束，附原始出处。
 
@@ -25,6 +31,3 @@
 - 第7–8节：怎样验证Agent价值，以及如何接上baseline。
 
 本目录保存调研文档和出处，不包含第三方项目完整代码、论文全文或任何已执行的训练实验。首轮来源截止日为2026-09-16；详细总结补充核验至2026-09-17，见[本轮来源记录](05_deep_dive_sources.md)。动态页面后续可能变化。
-
-
-
